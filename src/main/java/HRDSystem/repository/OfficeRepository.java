@@ -1,8 +1,8 @@
 package HRDSystem.repository;
 
-import HRDSystem.entity.EmployeeEntity;
+import HRDSystem.entity.OfficeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface OfficeRepository extends JpaRepository<EmployeeEntity, Long> {
+public interface OfficeRepository extends JpaRepository<OfficeEntity, Long> {
 
 }

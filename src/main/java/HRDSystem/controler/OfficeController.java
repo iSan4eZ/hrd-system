@@ -1,7 +1,14 @@
 package HRDSystem.controler;
 
+import HRDSystem.entity.OfficeEntity;
 import HRDSystem.service.OfficeService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,5 +18,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class OfficeController {
 
   private final OfficeService officeService;
+
+  @GetMapping
+  public List<OfficeEntity> getAll(Sort sort) {
+    return officeService.getAll(sort);
+  }
+
+  @PostMapping("/create")
+  public void create(@RequestBody OfficeEntity officeEntity) {
+    officeService.create(officeEntity);
+  }
+
+  @PostMapping("/delete/{id}")
+  public void removeById(@PathVariable Long id) {
+    officeService.removeById(id);
+  }
 
 }
