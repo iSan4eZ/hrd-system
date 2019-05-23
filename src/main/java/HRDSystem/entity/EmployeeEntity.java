@@ -44,7 +44,7 @@ public class EmployeeEntity {
 
   public enum UserRole {
     ADMIN,
-    CASHIER,
-    USER
+    HR,
+    EMPLOYEE
   }
 }
